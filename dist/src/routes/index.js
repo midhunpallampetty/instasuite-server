@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const auth_1 = require("../controllers/auth");
+const router = (0, express_1.Router)();
+router.get('/auth/instagram', auth_1.instagramLogin);
+router.get('/auth/instagram/callback', auth_1.instagramCallback);
+router.get('/profile', auth_1.getProfile);
+// router.get('/media', getMedia);
+exports.default = router;

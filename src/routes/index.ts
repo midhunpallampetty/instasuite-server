@@ -11,6 +11,6 @@ const router = Router();
 router.get('/auth/instagram', instagramLogin);
 router.get('/auth/instagram/callback', instagramCallback);
 router.get('/profile', getProfile);
-router.get('/media', getMedia);
+// router.get('/media', getMedia);
 
 export default router;

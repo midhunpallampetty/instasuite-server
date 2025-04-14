@@ -18,7 +18,7 @@ app.use(cors(corsOptions));
 
 
 app.use('/', router);
-app.get('/api/instagram-profile', async (req, res) => {
+app.get('/api/instagram-profile', async (req:any, res:any) => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
     
@@ -39,7 +39,7 @@ app.get('/api/instagram-profile', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch profile' });
   }
 });
-app.get('/api/instagram-media', async (req, res) => {
+app.get('/api/instagram-media', async (req:any, res:any) => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
     if (!token) return res.status(401).json({ error: 'Unauthorized' });
@@ -59,7 +59,7 @@ app.get('/api/instagram-media', async (req, res) => {
 
     // Fetch comments for each media item
     const mediaWithComments = await Promise.all(
-      mediaData.map(async (media) => {
+      mediaData.map(async (media:any) => {
         try {
           const commentRes = await axios.get(`https://graph.instagram.com/${media.id}/comments`, {
             params: {
